@@ -21,14 +21,25 @@ class Board
         @rows[row][col]
     end
 
+    def []=(pos, piece)
+        raise 'invalid pos' unless valid_pos?(pos)
+
+        @rows[pos] = piece
+    end
+
     def valid_pos?(pos)
 
     end
 
     def move_piece(start_pos, end_pos)
-        
+        raise 'no piece at start_pos' if start_pos.empty?
+
+    end
+
+    def empty?(pos)
+        @rows[pos].is_a?(Piece)
     end
 
 end
 
-p rows = rows.new
+rows = Board.new
