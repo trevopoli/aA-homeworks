@@ -54,6 +54,9 @@ end
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
+    raise ArgumentError.new("'yrs_known' must be greater than or equal to 5") if yrs_known.to_i < 5
+    raise ArgumentError.new("Need a name for BestFriend") if name.length <= 0
+    raise ArgumentError.new("Need a fav_pastime for BestFriend") if fav_pastime.length <= 0
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
