@@ -1,17 +1,17 @@
 
 module Slidable
-    HORIZONTAL_DIRS: [
-        [0,1]
-        [1,0]
-        [-1,0]
-        [0,-1]
+    HORIZONTAL_DIRS = [
+        [0,1],
+        [1,0],
+        [-1,0],
+        [0,-1],
     ].freeze
 
-    DIAGONAL_DIRS: [
-        [1,1]
-        [-1,-1]
-        [1,-1]
-        [-1,1]
+    DIAGONAL_DIRS = [
+        [1,1],
+        [-1,-1],
+        [1,-1],
+        [-1,1],
     ].freeze
 
     def horizontal_dirs

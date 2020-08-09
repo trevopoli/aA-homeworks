@@ -5,7 +5,7 @@ class Bishop < Piece
     include Slidable
 
     def symbol
-        "R"
+        "B"
     end
 
     protected

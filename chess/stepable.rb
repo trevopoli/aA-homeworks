@@ -12,7 +12,7 @@ module Stepable
             new_pos = [x + dx, y + dy]
             
             if board.valid_pos?(new_pos)
-                moves << new_pos if board.empty?(new_pos) || if !board.valid_pos?(new_pos)
+                moves << new_pos if board.empty?(new_pos) || !board.valid_pos?(new_pos)
             end
         end
         
