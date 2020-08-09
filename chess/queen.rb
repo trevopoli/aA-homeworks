@@ -1,5 +1,5 @@
 require_relative 'slidable'
-require_relative 'Piece'
+require_relative 'piece'
 
 class Queen < Piece
     include Slidable
