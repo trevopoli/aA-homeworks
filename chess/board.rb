@@ -88,8 +88,11 @@ class Board
         raise 'no piece at start_pos' if self.empty?(start_pos)
         raise 'not a valid end_pos' if !self.valid_pos?(end_pos)
 
-        self[end_pos] = self[start_pos]
-        self[start_pos] = NullPiece.instance
+        
+        if self[start_pos].moves.include?(end_pos) # make sure move is within Piece's valid moves
+            self[end_pos] = self[start_pos]
+            self[start_pos] = NullPiece.instance
+        end
     end
 
     def empty?(pos)
@@ -106,5 +109,5 @@ end
 
 board = Board.new
 board.render_help
-board.move_piece([1,1], [4,4])
+board.move_piece([0,1], [2,2])
 board.render_help

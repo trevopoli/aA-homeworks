@@ -2,7 +2,7 @@ require_relative 'stepable'
 require_relative 'piece'
 
 class Knight < Piece
-    include Slidable
+    include Stepable
 
     def symbol
         "N"
@@ -11,7 +11,7 @@ class Knight < Piece
     protected
 
     def move_diffs
-        [[1,2],[2,1],[-1,2][-2,1],[-1,-2],[-2,-1]]
+        [[1,2],[2,1],[-1,2],[-2,1],[-1,-2],[-2,-1]]
     end
 
 end
