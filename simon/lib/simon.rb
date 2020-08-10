@@ -63,5 +63,4 @@ class Simon
 end
 
 simon = Simon.new
-
 simon.play
