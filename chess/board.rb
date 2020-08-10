@@ -91,12 +91,15 @@ class Board
         
         if self[start_pos].moves.include?(end_pos) # make sure move is within Piece's valid moves
             self[end_pos] = self[start_pos]
+            self[end_pos].pos = end_pos
             self[start_pos] = NullPiece.instance
+        else
+            raise 'not a possible move'
         end
     end
 
     def empty?(pos)
-        !self[pos].is_a?(Piece)
+        self[pos].empty?
     end
 
     def render_help
@@ -108,6 +111,10 @@ class Board
 end
 
 board = Board.new
-board.render_help
-board.move_piece([0,1], [2,2])
-board.render_help
+
+# board.move_piece([6,2], [4,2])
+# board.move_piece([4,2], [3,2])
+# board.move_piece([1,3], [2,3])
+# board.render_help
+# board.move_piece([2,3], [3,2])
+# board.render_help
