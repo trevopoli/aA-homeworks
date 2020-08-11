@@ -7,7 +7,7 @@ module Stepable
         move_diffs.each do |step|
             dx = step[0]
             dy = step[1]
-            
+
             x, y = pos
             new_pos = [x + dx, y + dy]
             

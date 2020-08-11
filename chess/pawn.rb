@@ -48,15 +48,15 @@ class Pawn < Piece
     def side_attacks
         x,y = pos
         side_steps = [[x + forward_dir, y + 1], [x + forward_dir, y - 1]]
-        p side_steps
 
         side_steps.select! do |attack_pos|
-            false unless board.valid_pos?(attack_pos)
-
-            board[attack_pos].color != color && !board.empty?(attack_pos)
+            if board.valid_pos?(attack_pos)
+                board[attack_pos].color != color && !board.empty?(attack_pos)
+            else
+                false
+            end
         end
 
-        p side_steps
         side_steps
     end
 
