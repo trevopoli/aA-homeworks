@@ -8,10 +8,10 @@ require_relative 'rook'
 
 class Board
 
-    def initialize
+    def initialize(fill = true)
         @rows = Array.new(8) {Array.new(8)}
 
-        self.fill_start_board
+        self.fill_start_board if fill
     end
 
     def fill_start_board
@@ -127,11 +127,22 @@ class Board
         @rows.flatten.reject(&:empty?)
     end
 
-    def render_help
-        @rows.each do |row|
-            puts row.join(" ")
+    # def render_help
+    #     @rows.each do |row|
+    #         puts row.join(" ")
+    #     end
+    # end
+
+    def dup
+        new_board = Board.new(false)
+
+        pieces.each do |piece|
+            piece.class.new(piece.color, new_board, piece.pos)
         end
+
+        new_board
     end
+
 end
 
 # board = Board.new
