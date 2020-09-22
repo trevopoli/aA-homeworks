@@ -104,9 +104,9 @@ class Playwright
   end
 
   def initialize(options)
-    @id = options[id]
-    @name = options[name]
-    @birth_year = options[birth_year]
+    @id = options['id']
+    @name = options['name']
+    @birth_year = options['birth_year']
   end
 
   def create
@@ -134,7 +134,7 @@ class Playwright
 
   def get_plays
     raise "#{self} is not in database" unless self.id
-    PlayDBConnection.instance.execute(<<-SQL, self.id)
+    plays = PlayDBConnection.instance.execute(<<-SQL, self.id)
       SELECT
         *
       FROM
@@ -143,4 +143,5 @@ class Playwright
         playwright_id = ?
     SQL
     plays.map {|play| Play.new(play)}
+  end
 end
