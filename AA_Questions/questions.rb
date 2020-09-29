@@ -28,10 +28,34 @@ class User
         User.new(results.first)
     end
 
+    def self.find_by_name(fname, lname)
+        results = QuestionsDatabase.instance.execute(<<-SQL, fname, lname)
+            SELECT
+                *
+            FROM
+                users
+            WHERE
+                fname = ? AND lname = ?
+        SQL
+        return nil unless results.length > 0
+
+        User.new(results.first)
+    end
+
     def initialize(options)
         @id = options['id']
         @fname = options['fname']
         @lname = options['lname']
+    end
+
+    def authored_questions
+        return nil unless @id
+        Question.find_by_author_id(@id)
+    end
+
+    def authored_replies
+        return nil unless @id
+        Reply.find_by_author_id(@id)
     end
 end
 
@@ -170,5 +194,31 @@ class Reply
         @question_id = options['question_id']
         @parent_reply_id = options['parent_reply_id']
         @user_id = options['user_id']
+    end
+
+    def author
+        User.find_by_id(@user_id)    
+    end
+
+    def question
+        Question.find_by_id(@question_id)
+    end
+
+    def parent_reply
+        Reply.find_by_id(@parent_reply_id)
+    end
+
+    def child_replies
+        child_replies = QuestionsDatabase.instance.execute(<<-SQL, @id)
+            SELECT
+                *
+            FROM
+                replies
+            WHERE
+                parent_reply_id = ?
+        SQL
+        return nil unless child_replies > 0
+
+        child_replies.map {|reply| Reply.new(reply)}
     end
 end
