@@ -75,4 +75,13 @@ VALUES
     (2, (SELECT id FROM users WHERE fname = 'Jerry' AND lname = 'Jones')),
     (2, (SELECT id FROM users WHERE fname = 'Amy' AND lname = 'Black'));
 
-
+INSERT INTO
+    question_likes (question_id, user_id)
+VALUES
+    (1,1),
+    (1,2),
+    (1,3),
+    (2,2),
+    (2,3),
+    (2,5),
+    (2,1);
