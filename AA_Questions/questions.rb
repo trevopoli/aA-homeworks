@@ -209,7 +209,7 @@ class Reply
     end
 
     def child_replies
-        child_replies = QuestionsDatabase.instance.execute(<<-SQL, @id)
+        child_replies = QuestionsDatabase.instance.execute(<<-SQL, self.id)
             SELECT
                 *
             FROM

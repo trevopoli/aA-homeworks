@@ -56,10 +56,23 @@ INSERT INTO
 VALUES
     ('Bob', 'Darling'),
     ('Cindy', 'Locks'),
-    ('Jerry', 'Jones');
+    ('Jerry', 'Jones'),
+    ('Robert', 'Red'),
+    ('Amy', 'Black');
 
 INSERT INTO
     questions (title, body, author_id)
 VALUES
     ('My Question', 'Why do birds fly?', (SELECT id FROM users WHERE fname = 'Jerry' AND lname = 'Jones')),
     ('Cindy''s Question', 'What in the world?', (SELECT id FROM users WHERE fname = 'Cindy' AND lname = 'Locks'));
+
+INSERT INTO
+    question_follows (question_id, follower_id)
+VALUES
+    (1, (SELECT id FROM users WHERE fname = 'Cindy' AND lname = 'Locks')),
+    (1, (SELECT id FROM users WHERE fname = 'Bob' AND lname = 'Darling')),
+    (1, (SELECT id FROM users WHERE fname = 'Amy' AND lname = 'Black')),
+    (2, (SELECT id FROM users WHERE fname = 'Jerry' AND lname = 'Jones')),
+    (2, (SELECT id FROM users WHERE fname = 'Amy' AND lname = 'Black'));
+
+
