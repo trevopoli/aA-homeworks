@@ -19,6 +19,7 @@ class ShortenedUrl < ApplicationRecord
 
     has_many(
         :visitors,
+        -> {distinct},
         through: :visits,
         source: :visitor
     )
@@ -39,6 +40,14 @@ class ShortenedUrl < ApplicationRecord
     end
 
     def num_clicks
-        #for instance url
+        visits.count
+    end
+
+    def num_uniques
+        visitors.count
+    end
+
+    def num_recent_uniques
+        visits.select('user_id').where('created_at > ?', 10.minutes.ago).distinct.count
     end
 end
