@@ -4,10 +4,23 @@ class ShortenedUrl < ApplicationRecord
     validates :user_id, presence: true
 
     belongs_to(
-        :submitter
+        :submitter,
         class_name: 'User',
         foreign_key: :user_id,
         primary_key: :id
+    )
+
+    has_many(
+        :visits,
+        class_name: 'Visit',
+        foreign_key: :shortened_url_id,
+        primary_key: :id
+    )
+
+    has_many(
+        :visitors,
+        through: :visits,
+        source: :visitor
     )
 
     def self.random_code
@@ -23,5 +36,9 @@ class ShortenedUrl < ApplicationRecord
             long_url: long_url,
             short_url: ShortenedUrl.random_code
         )
+    end
+
+    def num_clicks
+        #for instance url
     end
 end
