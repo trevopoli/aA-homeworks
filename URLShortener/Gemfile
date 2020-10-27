@@ -54,6 +54,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'launchy'
 end
 
 group :test do
