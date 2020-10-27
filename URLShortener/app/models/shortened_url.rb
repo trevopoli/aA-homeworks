@@ -2,6 +2,7 @@ class ShortenedUrl < ApplicationRecord
     validates :short_url, uniqueness: true, presence: true
     validates :long_url, presence: true
     validates :user_id, presence: true
+    validate :no_spamming
 
     belongs_to(
         :submitter,
@@ -49,5 +50,18 @@ class ShortenedUrl < ApplicationRecord
 
     def num_recent_uniques
         visits.select('user_id').where('created_at > ?', 10.minutes.ago).distinct.count
+    end
+
+    private
+
+    def no_spamming
+        last_minute_urls = ShortenedUrl
+            .where('created_at >= ?', 1.minute.ago)
+            .where(user_id: user_id)
+            .length
+
+        if last_minute_urls > 5
+            errors[:maximum] << 'of five urls per minute'
+        end
     end
 end
