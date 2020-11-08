@@ -196,3 +196,75 @@ Migrating to ChangeAddIndexes (20201107224124)
   ↳ /Users/trevorpolidore/.rbenv/versions/2.5.1/bin/rake:23
   [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/trevorpolidore/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mPoll Load (1.4ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:11
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAnswerChoice Load (1.0ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices"[0m
+  ↳ db/seeds.rb:13
+  [1m[36mResponse Load (1.7ms)[0m  [1m[34mSELECT "responses".* FROM "responses"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Markov"], ["created_at", "2020-11-08 03:19:10.864206"], ["updated_at", "2020-11-08 03:19:10.864206"]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Gizmo"], ["created_at", "2020-11-08 03:19:10.867113"], ["updated_at", "2020-11-08 03:19:10.867113"]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Raffy"], ["created_at", "2020-11-08 03:19:10.868422"], ["updated_at", "2020-11-08 03:19:10.868422"]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (12.9ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["title", "Cats Poll"], ["created_at", "2020-11-08 03:19:10.891448"], ["updated_at", "2020-11-08 03:19:10.891448"]]
+  ↳ db/seeds.rb:20
+  [1m[36mQuestion Create (0.8ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["poll_id", 1], ["text", "What Cat Is Cutest?"], ["created_at", "2020-11-08 03:19:10.914685"], ["updated_at", "2020-11-08 03:19:10.914685"]]
+  ↳ db/seeds.rb:22
+  [1m[36mAnswerChoice Create (0.6ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 1], ["text", "Markov"], ["created_at", "2020-11-08 03:19:10.923123"], ["updated_at", "2020-11-08 03:19:10.923123"]]
+  ↳ db/seeds.rb:23
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 1], ["text", "Curie"], ["created_at", "2020-11-08 03:19:10.924568"], ["updated_at", "2020-11-08 03:19:10.924568"]]
+  ↳ db/seeds.rb:24
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 1], ["text", "Sally"], ["created_at", "2020-11-08 03:19:10.925399"], ["updated_at", "2020-11-08 03:19:10.925399"]]
+  ↳ db/seeds.rb:25
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["poll_id", 1], ["text", "Which Toy Is Most Fun?"], ["created_at", "2020-11-08 03:19:10.926233"], ["updated_at", "2020-11-08 03:19:10.926233"]]
+  ↳ db/seeds.rb:27
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 2], ["text", "String"], ["created_at", "2020-11-08 03:19:10.927103"], ["updated_at", "2020-11-08 03:19:10.927103"]]
+  ↳ db/seeds.rb:28
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 2], ["text", "Ball"], ["created_at", "2020-11-08 03:19:10.927865"], ["updated_at", "2020-11-08 03:19:10.927865"]]
+  ↳ db/seeds.rb:29
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 2], ["text", "Bird"], ["created_at", "2020-11-08 03:19:10.928642"], ["updated_at", "2020-11-08 03:19:10.928642"]]
+  ↳ db/seeds.rb:30
+  [1m[36mResponse Create (1.0ms)[0m  [1m[32mINSERT INTO "responses" ("answer_choice_id", "respondent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["answer_choice_id", 3], ["respondent_id", 2], ["created_at", "2020-11-08 03:19:10.936123"], ["updated_at", "2020-11-08 03:19:10.936123"]]
+  ↳ db/seeds.rb:32
+  [1m[36mResponse Create (0.3ms)[0m  [1m[32mINSERT INTO "responses" ("answer_choice_id", "respondent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["answer_choice_id", 4], ["respondent_id", 2], ["created_at", "2020-11-08 03:19:10.937953"], ["updated_at", "2020-11-08 03:19:10.937953"]]
+  ↳ db/seeds.rb:36
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["title", "Dogs Poll"], ["created_at", "2020-11-08 03:19:10.938898"], ["updated_at", "2020-11-08 03:19:10.938898"]]
+  ↳ db/seeds.rb:41
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["poll_id", 2], ["text", "What Dog is Cutest?"], ["created_at", "2020-11-08 03:19:10.939742"], ["updated_at", "2020-11-08 03:19:10.939742"]]
+  ↳ db/seeds.rb:43
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 3], ["text", "Poodle"], ["created_at", "2020-11-08 03:19:10.940615"], ["updated_at", "2020-11-08 03:19:10.940615"]]
+  ↳ db/seeds.rb:44
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 3], ["text", "Cavalier"], ["created_at", "2020-11-08 03:19:10.941447"], ["updated_at", "2020-11-08 03:19:10.941447"]]
+  ↳ db/seeds.rb:45
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["poll_id", 2], ["text", "Which Toy do Dogs like most?"], ["created_at", "2020-11-08 03:19:10.942242"], ["updated_at", "2020-11-08 03:19:10.942242"]]
+  ↳ db/seeds.rb:47
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 4], ["text", "Rope"], ["created_at", "2020-11-08 03:19:10.943090"], ["updated_at", "2020-11-08 03:19:10.943090"]]
+  ↳ db/seeds.rb:48
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 4], ["text", "Ball"], ["created_at", "2020-11-08 03:19:10.943918"], ["updated_at", "2020-11-08 03:19:10.943918"]]
+  ↳ db/seeds.rb:49
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("answer_choice_id", "respondent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["answer_choice_id", 7], ["respondent_id", 1], ["created_at", "2020-11-08 03:19:10.944765"], ["updated_at", "2020-11-08 03:19:10.944765"]]
+  ↳ db/seeds.rb:51
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("answer_choice_id", "respondent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["answer_choice_id", 10], ["respondent_id", 1], ["created_at", "2020-11-08 03:19:10.945536"], ["updated_at", "2020-11-08 03:19:10.945536"]]
+  ↳ db/seeds.rb:52
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("answer_choice_id", "respondent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["answer_choice_id", 8], ["respondent_id", 2], ["created_at", "2020-11-08 03:19:10.946357"], ["updated_at", "2020-11-08 03:19:10.946357"]]
+  ↳ db/seeds.rb:53
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("answer_choice_id", "respondent_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["answer_choice_id", 9], ["respondent_id", 2], ["created_at", "2020-11-08 03:19:10.947151"], ["updated_at", "2020-11-08 03:19:10.947151"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
