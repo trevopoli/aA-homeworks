@@ -13,7 +13,8 @@
 #  index_questions_on_poll_id  (poll_id)
 #
 class Question < ApplicationRecord
-    
+    validates :text, presence: true
+
     has_many :answer_choices,
         class_name: :AnswerChoice,
         foreign_key: :question_id,

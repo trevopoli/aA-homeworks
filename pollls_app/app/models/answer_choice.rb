@@ -13,6 +13,7 @@
 #  index_answer_choices_on_question_id  (question_id)
 #
 class AnswerChoice < ApplicationRecord
+    validates :text, presence: true
 
     belongs_to :question,
         class_name: :Question,

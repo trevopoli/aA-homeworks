@@ -13,6 +13,8 @@
 #  index_polls_on_user_id  (user_id)
 #
 class Poll < ApplicationRecord
+    validates :title, presence: true, uniqueness: true
+    
     belongs_to :author,
         class_name: :User,
         foreign_key: :user_id,
